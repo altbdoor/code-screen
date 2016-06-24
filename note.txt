@@ -1,0 +1,20 @@
+var css = [],
+	js = [];
+
+Array.prototype.forEach.call(document.querySelectorAll('p.library-url'), function (item) {
+	var text = item.textContent.trim(),
+		jsMatch = text.match(/languages\/([A-z0-9-_]+)\.min\.js$/),
+		cssMatch = text.match(/styles\/([A-z0-9-_]+)\.min\.css$/);
+	
+	if (jsMatch && jsMatch[1]) {
+		js.push(jsMatch[1]);
+	}
+	else if (cssMatch && cssMatch[1]) {
+		css.push(cssMatch[1]);
+	}
+});
+
+css = JSON.stringify(css);
+js = JSON.stringify(js);
+
+var css=[],js=[];Array.prototype.forEach.call(document.querySelectorAll("p.library-url"),function(s){var t=s.textContent.trim(),r=t.match(/languages\/([A-z0-9-_]+)\.min\.js$/),a=t.match(/styles\/([A-z0-9-_]+)\.min\.css$/);r&&r[1]?js.push(r[1]):a&&a[1]&&css.push(a[1])});css=JSON.stringify(css);js=JSON.stringify(js);

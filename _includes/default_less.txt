@@ -1,0 +1,74 @@
+/*
+This largely concerns Apple's Retina Display. The value here is used to adjust
+the multiple CSS rules. E.g., if scale is 2, font size is 28px instead of 14px.
+*/
+@scale: 2;
+
+#output-container {
+  box-shadow:0 0 (@scale * 20px) rgba(0,0,0,0.3);
+  margin:(@scale * 20px);
+  font-size:(@scale * 1em);
+  line-height:1;
+  border-radius:(@scale * 4px);
+  display:inline-block;
+}
+#output-container > div:first-child {border-radius:(@scale * 4px) (@scale * 4px) 0 0}
+#output-container > div:last-child {border-radius:0 0 (@scale * 4px) (@scale * 4px)}
+#output-header {
+  position:relative;
+  padding:(@scale * 0.1em);
+  color:#555;
+  border:(@scale * 1px) solid #ccc;
+  border-bottom:0;
+  text-align:center;
+  background-image:-webkit-linear-gradient(top, #eee, #ddd);
+  background-image:linear-gradient(to bottom, #eee, #ddd);
+}
+#output-header-btn {
+  position:absolute;
+  top:(@scale * 0.1em);
+  bottom:(@scale * 0.1em);
+  left:(@scale * 0.1em);
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+#output-header-btn > li {
+  border-radius:50%;
+  border-width:(@scale * 1px);
+  border-style:solid;
+  width:(@scale * 0.4em);
+  height:(@scale * 0.4em);
+  display:inline-block;
+  vertical-align:middle;
+}
+
+#output-header-red {
+  background-color:#ff6157;
+  border-color:#e0433e;
+}
+#output-header-yellow {
+  background-color:#ffbd2e;
+  border-color:#de9f22;
+}
+#output-header-green {
+  background-color:#27c93f;
+  border-color:#1aab2b;
+}
+
+#output-body {
+  border:(@scale * 1px) solid #ccc;
+  overflow:hidden;
+}
+#output-body > pre {
+  padding:0;
+  border:0;
+  border-radius:0;
+  margin:0;
+  overflow:hidden;
+}
+#output-body > pre > code {
+  padding:0.5em 0.5em 1em;
+  display:block;
+  overflow:hidden;
+}

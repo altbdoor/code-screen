@@ -1,0 +1,168 @@
+---
+layout: base
+---
+
+<p>
+	Have questions? Read the <a href="faq.html">FAQ</a>.
+	Have an issue? Report it on <a href="https://github.com/altbdoor/code-screen/">GitHub</a>.
+</p>
+
+<form id="generator-form">
+	<table>
+		<tbody>
+			<tr>
+				<td colspan="2">
+					<b>&rarr; highlight.js</b>
+					<input type="hidden" name="option_highlightjs_version" value="{{ site.data.highlightjs.version }}">
+				</td>
+			</tr>
+			<tr>
+				<td>Style</td>
+				<td style="width:600px">
+					<select name="option_highlightjs_style">
+						{% for item in site.data.highlightjs.styles %}
+							<option value="{{ item }}"
+								{% if item == "monokai-sublime" %}
+									selected
+								{% endif %}
+							>
+								{{ item }}
+							</option>
+						{% endfor %}
+					</select>
+					<small>The CSS style for the code.</small>
+				</td>
+			</tr>
+			<tr>
+				<td>Language</td>
+				<td>
+					<select name="option_highlightjs_language">
+						{% for item in site.data.highlightjs.languages %}
+							<option value="{{ item }}"
+								{% if item == "javascript" %}
+									selected
+								{% endif %}
+							>
+								{{ item }}
+							</option>
+						{% endfor %}
+					</select>
+					<small>The language for the code.</small>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<b>&rarr; Input</b>
+				</td>
+			</tr>
+			<tr>
+				<td>File Name</td>
+				<td>
+					<input type="text" name="option_input_filename" value="testscript.js">
+					<small>The file name of the code file.</small>
+				</td>
+			</tr>
+			<tr>
+				<td>Code</td>
+				<td>
+					<textarea name="option_input_code" rows="5">{% include default_code.txt %}</textarea>
+					<small>Paste or type the code snippet here.</small>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<b>&rarr; Customize</b>
+				</td>
+			</tr>
+			<tr>
+				<td>Custom HTML</td>
+				<td>
+					<textarea name="option_customize_html" rows="5">{% include default_html.txt %}</textarea>
+					<small>The HTML that is used to render the image.</small>
+				</td>
+			</tr>
+			<tr>
+				<td>Custom LESS</td>
+				<td>
+					<textarea name="option_customize_less" rows="5">{% include default_less.txt %}</textarea>
+					<small>The LESS CSS styles that are used to render the image.</small>
+				</td>
+			</tr>
+			<tr>
+				<td>Width &times; Height</td>
+				<td>
+					<table style="width:100%">
+						<tbody>
+							<tr>
+								<td style="width:45%">
+									<input type="number" name="option_customize_width" min="400">
+								</td>
+								<td style="width:10%;text-align:center">
+									&times;
+								</td>
+								<td style="width:45%">
+									<input type="number" name="option_customize_height" min="400">
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					
+					<small>Width and height of the image in px. You might need to adjust this if your result image is larger than your screen.</small>
+				</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>
+					<div>
+						<label>
+							<input type="checkbox" name="option_customize_fakeantialias">
+							Include fake anti-alias?
+						</label>
+					</div>
+					
+					<small>Apply text-shadow CSS rule to fake the impression of anti-aliasing.</small>
+				</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td style="vertical-align:middle">
+					<button type="submit">
+						Generate HTML preview
+					</button>
+					
+					<button type="button" id="generator-html-to-image">
+						Generate image from HTML
+					</button>
+					
+					<a id="generator-view-image" href="javascript:void(0)" target="_blank" hidden style="margin-left:10px">
+						View generated image
+					</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</form>
+
+<hr>
+
+<h4>HTML preview</h4>
+<div id="output-html">
+	Press "Generate HTML preview" when you are ready!
+</div>
+
+<hr>
+
+<h4>Thanks</h4>
+<ul>
+	<li><a href="https://necolas.github.io/normalize.css/">Normalize.css 3.0.3</a></li>
+	<li><a href="http://zeptojs.com/">Zepto 1.1.6</a></li>
+	<li><a href="https://github.com/tsayen/dom-to-image">dom-to-image @ 5a937b6</a></li>
+	<li><a href="https://highlightjs.org/">highlight.js {{ site.data.highlightjs.version }}</a></li>
+	<li><a href="http://lesscss.org/">less 2.7.1</a></li>
+</ul>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/zepto/1.1.6/zepto.min.js"></script>
+<script src="//cdn.rawgit.com/tsayen/dom-to-image/5a937b6/dist/dom-to-image.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/{{ site.data.highlightjs.version }}/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.7.1/less.js"></script>
+<script src="public/script.js"></script>

@@ -1,0 +1,16 @@
+<div id="output-container">
+  <div id="output-header">
+    <ul id="output-header-btn">
+      <li id="output-header-red"></li>
+      <li id="output-header-yellow"></li>
+      <li id="output-header-green"></li>
+    </ul>
+    
+    <span id="output-filename">
+      testscript.js
+    </span>
+  </div>
+  <div id="output-body">
+    <pre><code id="output-code"></code></pre>
+  </div>
+</div>
