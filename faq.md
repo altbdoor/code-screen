@@ -6,7 +6,7 @@ layout: base
    
    Short answer, fill in the necessary fields, click "Generate HTML preview", check the HTML preview, click "Generate image from HTML", click "View generated image", and save the image if you are satisfied.
    
-   Long answer, 
+   <!-- Long answer, to be continued. -->
 
 1. **The filename or code is not being displayed in the preview.**
    
